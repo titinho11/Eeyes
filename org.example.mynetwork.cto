@@ -1,0 +1,69 @@
+/**
+ * My commodity trading network
+ */
+namespace org.eeyes.ressources
+
+concept Voices {
+  o String candidate //peut valoir NULL et O (pour Organization)
+  o Integer voice
+}
+
+concept recapSection {
+  o String sectionName //nom de la section
+  o Voices[] candidateVoices
+}
+
+concept Section {
+  o String name
+  o Section[] sections optional //peut valoir NULL
+}
+
+/** RESSOURCES **/
+participant Author identified by name {
+    o String name
+}
+
+asset RecapPV identified by author_name {
+    o String author_name
+    o Integer PVs default=0
+    o Section[] sections
+    o recapSection[] resultats
+    --> Author scrutateur
+}
+
+asset PV identified by code {
+    o String code //bureau_de_vote::author_name
+    o String BV
+    o String sectionName
+    o DateTime publishedDate
+    o Voices[] candidateVoices
+    --> Author scrutateur
+}
+  
+transaction ComputePV { //crèe le pv dans PVRegistry, puis compute le pv sur le recap correspondant
+    o String code //bureau_de_vote::author_name
+    o String BV
+    o String sectionName
+    o DateTime publishedDate
+    o Voices[] candidateVoices
+    --> Author scrutateur
+}
+
+/*{
+  "$class": "org.eeyes.ressources.RecapPV",
+  "author_name": "1655",
+  "PVs": "",
+  "resultats": {
+    "$class": "org.eeyes.ressources.recapSection",
+    "candidateVoices": {
+      "$class": "org.eeyes.ressources.Voices",
+      "candidate": "",
+      "voice": ""
+    },
+    "name": ""
+  },
+  "scrutateur": {
+    "$class": "org.eeyes.ressources.Author",
+    "name": ""
+  }
+}*/
