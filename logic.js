@@ -1,15 +1,15 @@
 const modelsNamespace = 'org.eeyes.ressources'
 
-function getSectionParenteDe(section, liste){
-  var parent = '';//mis pour le preview
-  //console.log('a des sous sections ? '+typeof section.sections);
+function getSectionParenteDe(section, liste, parnt){
+  var parent = parnt;//mis pour le preview
   
+  //getSectionParenteDe(upload.sectionName, bonRecap.sections);
   for (const s of liste) {
-    if (s.name == section.name) {
+    if (s.name == section) {
       return parent;
     }
     else if (typeof s.sections != 'undefined') {
-      var data = getSectionParenteDe(section, s.sections);
+      var data = getSectionParenteDe(section, s.sections, s.name);
       if (data!='') return (data=='-')? s.name:data;
       //probleme de arrrivé au fond d une branche, comment
       //faire pour conseerver la recursivite ?
@@ -52,10 +52,10 @@ async function uploadPV(upload) {
   }
   
   /*
-  1- mettre a jour pv dans les sections parentes de recap pv
   2- resoudre le pb de bureau de vote pour qu'on puisse aussi avoir les resultats par BV
+  3- tenir compte des author vraipv et elecam
+  4- tenir compte des voies du null
   */
-  console.log('le recap recupere');
   console.log(bonRecap);
   
   //computer pv dans bonRecap
@@ -77,20 +77,21 @@ async function uploadPV(upload) {
   bonRecap.PVs +=1;
    
   //MAJ des resultats des sections parentes dans bonRecap
-  let mere = getSectionParenteDe(upload.sectionName, bonRecap.sections);
+  let mere = getSectionParenteDe(upload.sectionName, bonRecap.sections, '');
   while (mere != ''){
-    for (i=0;i<bonRecap.resultats.lenght;i++){
-      if (bonRecap.resultats[i].name == mere){
-        for (j=0;j<bonRecap.resultats[i].candidateVoices.lenght;j++){
-          for (k=0;k<upload.candidateVoices.lenght;k++){
-            if (upload.candidateVoices[k].candidate == bonRecap.resultats[i].candidateVoices[j].candidate)
+    for (i=0;i<bonRecap.resultats.length;i++){
+      if (bonRecap.resultats[i].sectionName == mere){
+        for (j=0;j<bonRecap.resultats[i].candidateVoices.length;j++){
+          for (k=0;k<upload.candidateVoices.length;k++){
+            if (upload.candidateVoices[k].candidate == bonRecap.resultats[i].candidateVoices[j].candidate){
               bonRecap.resultats[i].candidateVoices[j].voice += upload.candidateVoices[k].voice;
               break;
+            }
           }
         }
       }
     }
-    mere = getSectionParenteDe(mere, bonRecap.sections);
+    mere = getSectionParenteDe(mere, bonRecap.sections, '');
   }
 
   //sauvegarder la MAJ
