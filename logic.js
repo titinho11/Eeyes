@@ -100,10 +100,16 @@ async function uploadPV(upload) {
     
 //TODO
 /*
-Remplir les sections intermediaires, parentes au BV
-Je viens de remplir le BV avec le nouveau PV. maintenant faut
-remonter jusqu'au sommet en mettant à jour les resultats
-- resoudre la question de BV parmis sections ?? 
-  OUI, BVC doit faire parti des sous section, en faite ce 
-  sera meme la section terminale.
+- apprendre a deployer tout ceci sur un vrai reseau, et plus sur le playground.. ceci pour pouvoir ecrire le script qui cree automatiquement les assets
+- choisir et donner à francine les format de sorties, afin que francine puisse deja utiliser ces variables.
+	- un pv
+    - un tableau de pvs
+    - un recap PV
+    - un tableau de recapPV
+- script de creation et configuration des asset (installation de la SE) qui prend en entree le fichier SE-config.json et cree tous les asset et participants, de sorte que à la fin on attende plus que les transactions d'ajout de pvs.
+- L'api de questionnement de la BC. Pour cela on pourra creer des transactions qui prennent en entree la question et donne en sortie le resultat, qui peut etre les pvs de tel candidats, de tel BV ou section, ou meme les recapPVs...
+	- pv de scrutateur
+    - pvs de candidats
+    - pvs de section
+    - pv de BV
 */
