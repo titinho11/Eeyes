@@ -1,3 +1,86 @@
+//InitSE data
+{
+  "$class": "org.eeyes.ressources.InitSE",
+  "title": "Election présidentielle Octobre 2018, Cameroun",
+    "start": "11-10-2018 08:00:00",
+    "end": "11-10-2018 18:00:00",
+    "seEndDate": "12-10-2018 23:59:59",
+    "candidates": ["A", "B", "C"],
+    "currentBoss": "A", 
+    "organism": "Elecam",
+    "bvs": 7,
+    "sections": [
+        {
+          "$class": "org.eeyes.ressources.Section",
+          "name": "Yaounde",
+          "sections": [
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Mendong",
+              "sections": [
+                {
+                  "$class": "org.eeyes.ressources.Section",
+                  "name": "Gendarmerie Mendong"
+                },
+                {
+                  "$class": "org.eeyes.ressources.Section", 
+                  "name": "Lycée de Mendong"
+                }
+              ]
+            },
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Essos",
+              "sections": [
+                {
+                  "$class": "org.eeyes.ressources.Section",
+                  "name": "Dovv Essos"
+                },
+                {
+                  "$class": "org.eeyes.ressources.Section",
+                  "name": "Marché Essos"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$class": "org.eeyes.ressources.Section",
+          "name": "Douala",
+          "sections": [
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Deido",
+              "sections": [
+                {
+                  "$class": "org.eeyes.ressources.Section",
+                  "name": "Rond point Deido"
+                },
+                {
+                  "$class": "org.eeyes.ressources.Section",
+                  "name": "Feu Rouge Bessengue"
+                }
+              ]
+            },
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Akwa",
+              "sections": [
+                {
+                  "$class": "org.eeyes.ressources.Section",
+                  "name": "Akwa Nord"
+                },
+                {
+                  "$class": "org.eeyes.ressources.Section",
+                  "name": "Akwa Sud"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+}
+
 //RECAP PV 1
 {
   "$class": "org.eeyes.ressources.RecapPV",
@@ -37,6 +120,8 @@
     {
       "$class": "org.eeyes.ressources.recapSection",
       "sectionName": "Yaounde",
+      "nombreElecteursInscrits": 0,
+      "nombreSuffrageEmi":0,
       "candidateVoices": [
         {
           "$class": "org.eeyes.ressources.Voices",
@@ -53,6 +138,8 @@
     {
       "$class": "org.eeyes.ressources.recapSection",
       "sectionName": "Douala",
+      "nombreElecteursInscrits": 0,
+      "nombreSuffrageEmi":0,
       "candidateVoices": [
         {
           "$class": "org.eeyes.ressources.Voices",
@@ -69,6 +156,8 @@
     {
       "$class": "org.eeyes.ressources.recapSection",
       "sectionName": "Akwa",
+      "nombreElecteursInscrits": 0,
+      "nombreSuffrageEmi":0,
       "candidateVoices": [
         {
           "$class": "org.eeyes.ressources.Voices",
@@ -85,6 +174,8 @@
     {
       "$class": "org.eeyes.ressources.recapSection",
       "sectionName": "Deido",
+      "nombreElecteursInscrits": 0,
+      "nombreSuffrageEmi":0,
       "candidateVoices": [
         {
           "$class": "org.eeyes.ressources.Voices",
@@ -101,6 +192,8 @@
     {
       "$class": "org.eeyes.ressources.recapSection",
       "sectionName": "Mendong",
+      "nombreElecteursInscrits": 0,
+      "nombreSuffrageEmi":0,
       "candidateVoices": [
         {
           "$class": "org.eeyes.ressources.Voices",
@@ -117,6 +210,8 @@
     {
       "$class": "org.eeyes.ressources.recapSection",
       "sectionName": "Essos",
+      "nombreElecteursInscrits": 0,
+      "nombreSuffrageEmi":0,
       "candidateVoices": [
         {
           "$class": "org.eeyes.ressources.Voices",
@@ -173,6 +268,8 @@
       {
         "$class": "org.eeyes.ressources.recapSection",
         "sectionName": "Yaounde",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
         "candidateVoices": [
           {
             "$class": "org.eeyes.ressources.Voices",
@@ -189,6 +286,8 @@
       {
         "$class": "org.eeyes.ressources.recapSection",
         "sectionName": "Douala",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
         "candidateVoices": [
           {
             "$class": "org.eeyes.ressources.Voices",
@@ -205,6 +304,8 @@
       {
         "$class": "org.eeyes.ressources.recapSection",
         "sectionName": "Akwa",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
         "candidateVoices": [
           {
             "$class": "org.eeyes.ressources.Voices",
@@ -221,6 +322,8 @@
       {
         "$class": "org.eeyes.ressources.recapSection",
         "sectionName": "Deido",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
         "candidateVoices": [
           {
             "$class": "org.eeyes.ressources.Voices",
@@ -237,6 +340,8 @@
       {
         "$class": "org.eeyes.ressources.recapSection",
         "sectionName": "Mendong",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
         "candidateVoices": [
           {
             "$class": "org.eeyes.ressources.Voices",
@@ -253,6 +358,8 @@
       {
         "$class": "org.eeyes.ressources.recapSection",
         "sectionName": "Essos",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
         "candidateVoices": [
           {
             "$class": "org.eeyes.ressources.Voices",
@@ -270,26 +377,38 @@
     "scrutateur": "resource:org.eeyes.ressources.Author#MBARGA JEAN"
   }
 
-  //Transaction pv Mendong:ABENA MICHEL
+  //Transaction pv Mendong:A
   {
     "$class": "org.eeyes.ressources.ComputePV",
-    "code": "Mendong:ABENA MICHEL",
+    "code": "Mendong:A",
     "BV": "Lycée de Mendong",
     "sectionName": "Mendong",
+    "nombreElecteursInscrits": 100,
+    "nombreSuffrageEmi":80,
     "publishedDate": "2018-11-14T07:20:14.404Z",
     "candidateVoices": [
       {
         "$class": "org.eeyes.ressources.Voices",
-        "candidate": "ABENA MICHEL",
-        "voice": 18
+        "candidate": "A",
+        "voice": 30
       },
       {
         "$class": "org.eeyes.ressources.Voices",
-        "candidate": "MBARGA JEAN",
+        "candidate": "B",
         "voice": 15
+      },
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "C",
+        "voice": 25
+      },
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "NULL",
+        "voice": 10
       }
     ],
-    "scrutateur": "resource:org.eeyes.ressources.Author#ABENA MICHEL"
+    "scrutateur": "resource:org.eeyes.ressources.Author#A"
   }
 
   //Transaction pv Akwa:ABENA MICHEL
@@ -298,6 +417,8 @@
     "code": "Akwa:ABENA MICHEL",
     "BV": "Lycée bilingue d'Akwa Nord",
     "sectionName": "Akwa",
+    "nombreElecteursInscrits": 0,
+    "nombreSuffrageEmi":0,
     "publishedDate": "2018-11-14T07:20:14.404Z",
     "candidateVoices": [
       {
@@ -313,3 +434,77 @@
     ],
     "scrutateur": "resource:org.eeyes.ressources.Author#ABENA MICHEL"
   }
+
+
+//tableau des resultats des differents scrutateurs pour la section "Mifi et Afamba"
+resultats = [
+  {
+    "section_name":"Mifi et Afamba",
+    "scrutateur":"ABENA MICHEL",
+    "nombreElecteursInscrits":8,
+    "nombreSuffrageEmi":4,
+    "candidateVoices": [
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "MBARGA JEAN",
+        "voice": 0
+      },
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "ABENA MICHEL",
+        "voice": 0
+      },
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "NULL",
+        "voice": 0
+      }
+    ]
+  },
+  {
+    "section_name":"Mifi et Afamba",
+    "scrutateur":"MBARGA JEAN",
+    "nombreElecteursInscrits":8,
+    "nombreSuffrageEmi":4,
+    "candidateVoices": [
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "MBARGA JEAN",
+        "voice": 0
+      },
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "ABENA MICHEL",
+        "voice": 0
+      },
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "NULL",
+        "voice": 0
+      }
+    ]
+  }, 
+  {
+    "section_name":"Mifi et Afamba",
+    "scrutateur":"ORGANISM",
+    "nombreElecteursInscrits":8,
+    "nombreSuffrageEmi":4,
+    "candidateVoices": [
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "MBARGA JEAN",
+        "voice": 0
+      },
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "ABENA MICHEL",
+        "voice": 0
+      },
+      {
+        "$class": "org.eeyes.ressources.Voices",
+        "candidate": "NULL",
+        "voice": 0
+      }
+    ]
+  }
+]

@@ -10,7 +10,20 @@ concept Voices {
 
 concept recapSection {
   o String sectionName //nom de la section
+  o Integer nombreElecteursInscrits
+  o Integer nombreSuffrageEmi
   o Voices[] candidateVoices
+}
+
+concept SessionInfo {
+  o String title
+  o DateTime start
+  o DateTime seEndDate
+  o DateTime end
+  o String[] candidates
+  o String currentBoss
+  o String organism
+  o Integer bvs
 }
 
 concept Section {
@@ -26,6 +39,7 @@ participant Author identified by name {
 asset RecapPV identified by author_name {
     o String author_name
     o Integer PVs default=0
+    o SessionInfo session
     o Section[] sections
     o recapSection[] resultats
     --> Author scrutateur
@@ -34,6 +48,8 @@ asset RecapPV identified by author_name {
 asset PV identified by code {
     o String code //bureau_de_vote::author_name
     o String BV
+    o Integer nombreElecteursInscrits
+    o Integer nombreSuffrageEmi
     o String sectionName
     o DateTime publishedDate
     o Voices[] candidateVoices
@@ -44,11 +60,24 @@ transaction ComputePV { //crèe le pv dans PVRegistry, puis compute le pv sur le
     o String code //bureau_de_vote::author_name
     o String BV
     o String sectionName
+    o Integer nombreElecteursInscrits
+    o Integer nombreSuffrageEmi
     o DateTime publishedDate
     o Voices[] candidateVoices
     --> Author scrutateur
 }
 
+transaction InitSE { //initialise la BC en creant les candidaats et les recapPV a partir du SE-config.json
+    o String title
+    o DateTime start
+    o DateTime seEndDate
+    o DateTime end
+    o String[] candidates
+    o String currentBoss
+    o String organism
+    o Integer bvs
+    o Section[] sections
+}
 /*{
   "$class": "org.eeyes.ressources.RecapPV",
   "author_name": "1655",

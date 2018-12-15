@@ -1,0 +1,537 @@
+NOTE: 
+
+Chaque fois que l'on chargera le site, tu recevra le tableau ci. Maintenant tous les cliques qui se ferons dans le site pour charger les resultats
+d'une section en particulier ou d'un candidat en particulier, tu aura deja les resultats totaux ci, du coups tu va juste extraire de ces resultats
+ceux qui t'interresse, puis charger l'affichage correspondant. donc la consultation des resultats sera assez fluide, car il n'ya plus d'appels vers
+le serveur. Ca veut aussi dire que tant que la page n'est pas reload (F5), les resultats ne sont pas à jours (car depuis le précedent chargement 
+des pvs peuvent etre arrivés, sauf que il faut recharger la page pour faire un nouvel appel au serveur et recuperer les RecapPV à jours).
+
+resultats = [
+  {
+    "$class": "org.eeyes.ressources.RecapPV",
+    "author_name": "ABENA MICHEL",
+    "PVs": 0,
+    "sections": [
+      {
+        "$class": "org.eeyes.ressources.Section",
+        "name": "Yaounde",
+        "sections": [
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Mendong"
+          },
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Essos"
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.Section",
+        "name": "Douala",
+        "sections": [
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Deido"
+          },
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Akwa"
+          }
+        ]
+      }
+    ],
+    "resultats": [
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Yaounde",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Douala",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Akwa",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Deido",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Mendong",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Essos",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      }
+    ],
+    "scrutateur": "resource:org.eeyes.ressources.Author#ABENA MICHEL"
+  },{
+    "$class": "org.eeyes.ressources.RecapPV",
+    "author_name": "ABENA MICHEL",
+    "PVs": 0,
+    "sections": [
+      {
+        "$class": "org.eeyes.ressources.Section",
+        "name": "Yaounde",
+        "sections": [
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Mendong"
+          },
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Essos"
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.Section",
+        "name": "Douala",
+        "sections": [
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Deido"
+          },
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Akwa"
+          }
+        ]
+      }
+    ],
+    "resultats": [
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Yaounde",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Douala",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Akwa",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Deido",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Mendong",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Essos",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      }
+    ],
+    "scrutateur": "resource:org.eeyes.ressources.Author#ABENA MICHEL"
+  },
+  {
+    "$class": "org.eeyes.ressources.RecapPV",
+    "author_name": "ORGANISM",
+    "PVs": 0,
+    "sections": [
+      {
+        "$class": "org.eeyes.ressources.Section",
+        "name": "Yaounde",
+        "sections": [
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Mendong"
+          },
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Essos"
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.Section",
+        "name": "Douala",
+        "sections": [
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Deido"
+          },
+          {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Akwa"
+          }
+        ]
+      }
+    ],
+    "resultats": [
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Yaounde",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Douala",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Akwa",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Deido",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Mendong",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      },
+      {
+        "$class": "org.eeyes.ressources.recapSection",
+        "sectionName": "Essos",
+        "nombreElecteursInscrits": 0,
+        "nombreSuffrageEmi":0,
+        "candidateVoices": [
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "MBARGA JEAN",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "ABENA MICHEL",
+            "voice": 0
+          },
+          {
+            "$class": "org.eeyes.ressources.Voices",
+            "candidate": "NULL",
+            "voice": 0
+          }
+        ]
+      }
+    ],
+    "scrutateur": "resource:org.eeyes.ressources.Author#ORGANISM"
+  }
+]
