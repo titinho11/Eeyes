@@ -6,13 +6,32 @@ Outils de compilation de procès verbaux electoraux et de sécurisation des rés
 Cette application permet aux utilisateur via l'application front end d'uploader des pvs ce qui appelera la transaction uploadPV, puis à restituer l'ensemble des resultats en recuperant l'ensemble des RecapPVs.
 
 TEST:
-1- creer les authors, qui sont les differents candidats
-2- Creer les recapPVs qui sont les resultats des differents candidats
-3- Creer uploader des PVs
+1- executer la transaction initBC avec les données de SE-Config
+2- Creer uploader des PVs en executant la transaction computePV
 
 TODO:
-1- Creer la transaction qui installe les données de test
-2- S'assurer que en utilisant un interrogeur http, on interagie bien avec la BC via l'api
-3- Creer une simple appli javascript qui interagi avec la BC via l'api
-4- Creer la transaction installation qui a l'aide de SE-config pris en parametre installe tout le neccessaire dans la BC
+1- vue permettant la configuration de la SE
+2- appel depuis la vue de la transaction initSE
+3- Creer une simple appli javascript qui interagi avec la BC via l'api /** PAS NECCESSAIRE **/
+4- vue des resultats et appels à la recuperation des assets (PVs, RecapPV)
 5- Voire comment enregistrer une image (PV) dans la BC
+6- Vue uploader PV
+7- OCR sur pv image pour en extraire les informations
+8- execution de la transaction computePV depuis les données extrait de l'OCR, depuis la vue
+9- uploader les pvs data en cascade depuis le code python, vers la transaction computePV
+10- Déploiement dans une image dockerr (NB: le produit final sera une image docker)
+11- Documentation
+
+NB: les différentes vue qu'il y'aura sur la plateforme
+- Vue creation et configuration SE
+- Vue upload PV
+- Vues consultation des resultats :
+  - Vue consultation resultats globaux
+  - Vue consultation resultats par section
+  - Vue consultation resultats par candidat (les resultats d'un candidats dans les différentes sections
+  - Vue consultation resultats par scrutateurs (les resultats donnés par les scrutateurs du candidat x, ORGANISM et AUTHENTIC sont considéré comme un candidat...)
+- Des boutons sur l'interface permettant de :
+  - Télécharger le fichier de configuration de la SE
+  - Télécharger les fichiers json des resultats (les recapPV)
+  
+  
