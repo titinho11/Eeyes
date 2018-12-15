@@ -6,21 +6,20 @@ Outils de compilation de procès verbaux electoraux et de sécurisation des rés
 Cette application permet aux utilisateur via l'application front end d'uploader des pvs ce qui appelera la transaction uploadPV, puis à restituer l'ensemble des resultats en recuperant l'ensemble des RecapPVs.
 
 TEST:
-1- executer la transaction initBC avec les données de SE-Config
-2- Creer uploader des PVs en executant la transaction computePV
+- executer la transaction initBC avec les données de SE-Config
+- Creer uploader des PVs en executant la transaction computePV
 
 TODO:
-1- vue permettant la configuration de la SE
-2- appel depuis la vue de la transaction initSE
-3- Creer une simple appli javascript qui interagi avec la BC via l'api /** PAS NECCESSAIRE **/
-4- vue des resultats et appels à la recuperation des assets (PVs, RecapPV)
-5- Voire comment enregistrer une image (PV) dans la BC
-6- Vue uploader PV
-7- OCR sur pv image pour en extraire les informations
-8- execution de la transaction computePV depuis les données extrait de l'OCR, depuis la vue
-9- uploader les pvs data en cascade depuis le code python, vers la transaction computePV
-10- Déploiement dans une image dockerr (NB: le produit final sera une image docker)
-11- Documentation
+- vue permettant la configuration de la SE
+- appel depuis la vue de la transaction initSE
+- vue des resultats et appels à la recuperation des assets (PVs, RecapPV)
+- Voire comment enregistrer une image (PV) dans la BC
+- Vue uploader PV
+- OCR sur pv image pour en extraire les informations
+- execution de la transaction computePV depuis les données extrait de l'OCR, depuis la vue
+- uploader les pvs data en cascade depuis le code python, vers la transaction computePV
+- Déploiement dans une image dockerr (NB: le produit final sera une image docker)
+- Documentation
 
 NB: les différentes vue qu'il y'aura sur la plateforme
 - Vue creation et configuration SE
