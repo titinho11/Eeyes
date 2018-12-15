@@ -143,8 +143,9 @@ async function InitSE(data) {
   const factory = getFactory()
 
   
-  //on ajoute ORGANISM a la liste des participants pour qu'on cree son author et son recap pv
+  //on ajoute ORGANISM et AUTHENTIC a la liste des participants pour qu'on cree son author et son recap pv
   data.candidates.push("ORGANISM");
+  data.candidates.push("AUTHENTIC");
   //on cree donc les participant, organism en etant un aussi
   console.log("creation des authors:")
   for (j=0;j<data.candidates.length;j++){
@@ -199,6 +200,7 @@ async function InitSE(data) {
       //on rempli les candidates voices
       for (k=0;k<data.candidates.length;k++){
         if(data.candidates[k] == "ORGANISM") continue;
+        if(data.candidates[k] == "AUTHENTIC") continue;
         let cv = factory.newConcept(modelsNamespace, 'Voices');
         cv.candidate = data.candidates[k]
         cv.voice = 0
