@@ -21,6 +21,15 @@ TODO:
 - Déploiement dans une image dockerr (NB: le produit final sera une image docker)
 - Documentation
 
+--------
+TODO DEPLOIEMENT
+----------
+-   Integrer la creeation des pv
+-   Integrer l'envoie des pvs
+-   Integrer l'envoie de seconfig
+-   Corriger et integrer les vues
+-   Faire le doc de deploiement.
+
 NB: les différentes vue qu'il y'aura sur la plateforme
 - Vue creation et configuration SE
 - Vue upload PV
