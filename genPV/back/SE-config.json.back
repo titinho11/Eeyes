@@ -1,0 +1,82 @@
+{
+  "country": "CAMEROON",
+  "title": "Election présidentielle Octobre 2018, Cameroun",
+  "start": "11-10-2018 08:00:00",
+  "end": "11-10-2018 18:00:00",
+  "SE end date": "12-10-2018 23:59:59",
+  "authors": ["A", "B", "C"],
+  "currentBoss": "A",
+  "organism": "Elecam",
+  "BVs": 7,
+  "voters registered by BV": 100,
+  "sections": [
+    {
+      "$class": "org.eeyes.ressources.Section",
+      "name": "Yaounde",
+      "sections": [
+        {
+          "$class": "org.eeyes.ressources.Section",
+          "name": "Mendong",
+          "sections": [
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Gendarmerie Mendong"
+            },
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Lycée de Mendong"
+            }
+          ]
+        },
+        {
+          "$class": "org.eeyes.ressources.Section",
+          "name": "Essos",
+          "sections": [
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Dovv Essos"
+            },
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Marché Essos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$class": "org.eeyes.ressources.Section",
+      "name": "Douala",
+      "sections": [
+        {
+          "$class": "org.eeyes.ressources.Section",
+          "name": "Deido",
+          "sections": [
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Rond point Deido"
+            },
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Feu Rouge Bessengue"
+            }
+          ]
+        },
+        {
+          "$class": "org.eeyes.ressources.Section",
+          "name": "Akwa",
+          "sections": [
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Akwa Nord"
+            },
+            {
+              "$class": "org.eeyes.ressources.Section",
+              "name": "Akwa Sud"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
