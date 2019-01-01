@@ -1,0 +1,81 @@
+/**
+ * My commodity trading network
+ */
+namespace org.eeyes.ressources
+
+concept Voices {
+  o String candidate //peut valoir NULL et O (pour Organization)
+  o Integer voice
+}
+
+concept recapSection {
+  o String sectionName //nom de la section
+  o Integer nombreElecteursInscrits
+  o Integer nombreSuffrageEmi
+  o Voices[] candidateVoices
+}
+
+concept SessionInfo {
+  o String title
+  o String start
+  o String seEndDate
+  o String end
+  o String[] candidates
+  o String currentBoss
+  o String organism
+  o Integer bvs
+}
+
+concept Section {
+  o String name
+  o Section[] sections optional //peut valoir NULL
+}
+
+/** RESSOURCES **/
+participant Author identified by name {
+    o String name
+}
+
+asset RecapPV identified by author_name {
+    o String author_name
+    o Integer PVs default=0
+    o SessionInfo session
+    o Section[] sections
+    o recapSection[] resultats
+    --> Author scrutateur
+}
+
+asset PV identified by code {
+    o String code //bureau_de_vote::author_name
+    o String BV
+    o Integer nombreElecteursInscrits
+    o Integer nombreSuffrageEmi
+    o String sectionName
+    o DateTime publishedDate
+    o Voices[] candidateVoices
+    --> Author scrutateur
+}
+  
+transaction ComputePV { //crèe le pv dans PVRegistry, puis compute le pv sur le recap correspondant
+    o String code //bureau_de_vote::author_name
+    o String BV
+    o String sectionName
+    o Integer nombreElecteursInscrits
+    o Integer nombreSuffrageEmi
+    o DateTime publishedDate
+    o Voices[] candidateVoices
+    --> Author scrutateur
+}
+
+transaction InitSE { //initialise la BC en creant les candidaats et les recapPV a partir du SE-config.json
+    o String title
+    o String start
+    o String seEndDate
+    o String end
+    o String[] candidates
+    o String currentBoss
+    o String organism
+    o Integer bvs
+    o Section[] sections
+}
+

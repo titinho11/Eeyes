@@ -137,6 +137,11 @@ async function uploadPV(upload) {
  * @transaction
  */
 async function InitSE(data) {
+
+  /**
+   * On reinitialise la BC en effacant tout ce qu'il y'a dedans
+   */
+  
   	
   /** Creation des participants (candidats) **/
   const authorReg = await getParticipantRegistry(modelsNamespace + '.Author')
@@ -153,8 +158,6 @@ async function InitSE(data) {
     console.log("on cree "+pv.name)
     await authorReg.add(pv)
   }
-  
-  
   
   /** Creation des recapPV **/
   console.log("creation des recap PV:")
@@ -217,9 +220,6 @@ async function InitSE(data) {
     console.log("on enregistre ce recapPV...")
     await rpReg.add(rpv)
   }
-  //PK ON S'ARRETE AU PREMIER SCRUTATEUR ET ON NE CREE PAS LES RECAPPV DES AUTRES ???
-  //PAS DE CANDIDATE VOICE POUR ORGANIZSM
-  //les resultats ne prennent qu'une descendance des sections et non toutes...
 }
     
 //TODO
