@@ -435,6 +435,39 @@
     "scrutateur": "resource:org.eeyes.ressources.Author#ABENA MICHEL"
   }
 
+//Compute pv
+{
+  "$class": "org.eeyes.ressources.ComputePV",
+  "code": "Section.1.1.1.:Paul Biya",
+  "BV": "Section.1.1.1.2.",
+  "sectionName": "Section.1.1.1.",
+  "nombreElecteursInscrits": 120,
+  "nombreSuffrageEmi":108,
+  "publishedDate": "2018-11-14T07:20:14.404Z",
+  "candidateVoices": [
+    {
+      "$class": "org.eeyes.ressources.Voices",
+      "candidate": "Paul Biya",
+      "voice": 45
+    },
+    {
+      "$class": "org.eeyes.ressources.Voices",
+      "candidate": "Maurice Kamto",
+      "voice": 44
+    },
+    {
+      "$class": "org.eeyes.ressources.Voices",
+      "candidate": "Array Ashu",
+      "voice": 12
+    },
+    {
+      "$class": "org.eeyes.ressources.Voices",
+      "candidate": "NULL",
+      "voice": 7
+    }
+  ],
+  "scrutateur": "resource:org.eeyes.ressources.Author#Paul Biya"
+}
 
 //tableau des resultats des differents scrutateurs pour la section "Mifi et Afamba"
 resultats = [
