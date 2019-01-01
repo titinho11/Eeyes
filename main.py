@@ -3,22 +3,32 @@
 import os
 
 #1 - On demarre les contenaires docker
+print ("---------------------------------------------------")
+print ("DEMARRAGE DE L'ENVIRONEMENT")
 print ("Starting Fabric Network and installing chaincode...")
+os.system("killall -9 node")
 os.system("sh startNetwork.sh")
 print ("Eeyes Network up !")
 
 #Intialisation de la boucle
 rep = "yes"
 while rep == "yes":
-    os.system("composer network reset -c admin@eeyes")
+    os.system("composer network reset -c admin@eeyesv4")
     #3 - On gere la creation ou l'edition de SE-Config.json
+    print ("---------------------------------------------------")
+    print ("CREATION DU FICHIER DE CONFIGURATION DE LA SESSION ELECTORALE")
+    print("\033[32m")
     print ("Vous devez actuellement creer un fichier de configuration" +
     " la session electorale. Il contient les informations relative" +
     " a la session electorale liee au au systeme de compilation" +
     " des proces verbaux Eeyes.")
+    print("\033[37m")
     
     res = "no"
     while res == "no":
+        os.system("rm ~/Desktop/SE-config.json")
+        os.system("rm -r ~/Desktop/.Jsons")
+        os.system("rm -r ~/Desktop/Images")
         print("Entrez le pays ou se deroule le scrutin...")
         pays = input()
         print("Entrez un titre pour cette session electorale...")
@@ -57,54 +67,92 @@ while rep == "yes":
         fichier.close()
 
         print("Generation du fichier de configuration de la session electorale...")
-        command = "python3 Gen_SE_Config.py " +prof+ " " +ss+ " . \"" +pays+ "\" \"" +title+ "\" \"" +debut+ "\" \"" +fin+ "\" \"" +dateFin+"\" \"" +organism+ "\" " +nbreInscrit+ " candidates.temp"
+        command = "python3 Gen_SE_Config.py " +prof+ " " +ss+ " ~/Desktop \"" +pays+ "\" \"" +title+ "\" \"" +debut+ "\" \"" +fin+ "\" \"" +dateFin+"\" \"" +organism+ "\" " +nbreInscrit+ " candidates.temp"
         print("voici la commande : "+command)
 
         os.system(command)
         os.remove("candidates.temp")
+        print("\033[32m")
         print("Le fichier de configuration a bien ete genere !")
         print("Veuillez le consulter puis fermer l'editeur, sans neccessairement modifier quoique ce soit, puis revenez ici confimer son utilisation pour la suite...")
-        os.system("se.json")
+        os.system("gedit ~/Desktop/SE-config.json")
         print("Voulez-vous utiliser ce fichier de configuration ? entrez 'yes' pour confirmer et 'no' pour pour recommencer la generation...")
+        print("\033[37m")
         res = input()
 
     #proposer de use le par defaut
 
     #4 - On cree la SE
+    print ("---------------------------------------------------")
+    print("\033[32m")
+    print ("CREATION DE LA SESSION ELECTORALE")
     print("Creation de la session electorale dans le systeme Eeyes a partir du fichier de configuration...")
-    os.system("python3 sendSEConfig.py")
+    print("\033[37m")
+    os.system("python3 Send_SE_Config.py ~/Desktop")
     print("La session electorale est a present correctement configuree. Vous pouvez des a present consulter la plateforme web a travers le fichier html eeyes.html sur le bureau.")
 
     #reset BC : composer network reset -c admin@eeyes
 
     #5 - Generation des pvs
+
+    print("\033[32m")
+    print("-------------------------------------------")
     print("GENERATION DES PROCES VERBAUX")
     print("Afin de generer les differents proces verbaux, veuillez fournir ces quelques informations")
-    #print("GENERATION DES PROCES VERBAUX")
-    command = "python3 genPVs.py "
+    print("Entrez le type de generation : ")
+    print("Entrez 'normal' pour generer les proces verbaux identique pour chaque scrutateurs d'un meme bureau de vote")
+    print("Entrez 'chaos' pour generer des proces verbaux differents (modifies) pour chaque scrutateurs d'un meme bureau de vote")
+    print("Entrez 'fraude' pour generer des proces verbaux identique pour les scrutateurs du candidat sortant et ceux de l'organisme, le reste ayant des proces verbaux authentique")
+    print("Entrez 'coalition' pour generer les proces verbaux identique pour tous les scrutateurs d'un meme groupe de candidat prit au hazard, et ce dans tous les bureau de vote")
+    typegen = input()
+
+    print("Entrez la probabilite de presence d'un scrutateur d'un candidat lambda dans un bureau de vote ([0,1])")
+    proba = input()
+
+    typecol = ""
+    if typegen == "coalition":
+        print("Entrez le mode dde coalition :")
+        print("Entrez 'equilibre' afin que le groupe de candidats qui fraude se partagent equitablement les differrentes voix detournes aux autres candidats")
+        print("Entrez 'concentre' afin que le groupe de candidats qui fraude se renvoie les differentes voix detournes a un seul d'entre eux")
+        typecol = input()
+
+    command = "python3 genPV/Gen_Pv_Files.py ~/Desktop "+typegen+" "+typecol+" "+proba+" ~/Desktop"
+    print("Generation des pvs...", command)
+
+    print("\033[37m")
     os.system(command)
-    print("Les pvs sont generes. Vous pouvez donc acceder a la plateforme et les uploader un a un. Les resultats se mettent a jour apres chaque upload. Allez-y et uploadez quelques proces verbaux !")
+    print("Les pvs sont generes sur le bureau dans le dossier Images. Vous pouvez donc acceder a la plateforme et les uploader un a un. Les resultats se mettent a jour apres chaque upload. Allez-y et uploadez quelques proces verbaux !")
 
 
 
     #6 - Upload des pvs
-    print("---------------------------------------------------")
+
+    print("\033[32m")
+    print ("---------------------------------------------------")
+    print ("TELECHARGEMENT DES PROCES VERBAUX")
     print("Vous pouvez cependant utiliser un utilitaire pour uploader automatiquement tous les pvs, afin de vous eviter d'avoir a uploader plus de 50 fichiers !")
     print("Uploader automatiquement les pvs ? (si vous l'avez deja fait manuellement, entrez 'no') entrez 'yes' pour uploader automatiquement et 'no' si vous ne le voulez pas.")
     res = input()
     if res == "yes":
-        os.system("python3 sendPvs.py")
+        os.system("python3 sendPvs.py ~/Desktop http://localhost/uploadPv")
 
+    print("\033[37m")
     print("Accedez a la plateforme et consultez les resultats !!")
     print("------------------------------------------------------")
     print("processus de test termine. Vous pouvez le recommencer, avec un nouveau fichier de configuration de session electorale.")
     print("Recommencer le test ? entrez 'yes' pour recommencer a partir de la generation du fichier de configuration, et 'no' pour fermer le systeme et eteindre la machine.")
     rep = input()
+    os.system("rm -r ~/Desktop/.Jsons")
+    os.system("rm -r ~/Desktop/Images")
+    os.system("rm -r ~/Desktop/temp.pdf")
+    
 
 #7 - On eteind le reseau Eeyes
+print("\033[32m")
 print ("Test done ! Now we are going to shutdown the Eeyes Network.")
 os.system("sh stopNetwork.sh")
 print ("eteindre la machine ? 'yes' pour eteindre 'no' sinon")
 p = input()
+print("\033[37m")
 if p == "yes":
-    os.system("sudo shutdown now")
+    os.system("shutdown now")

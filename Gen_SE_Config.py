@@ -32,7 +32,7 @@ tree = gen_children(tree_depth, sub_sections_by_section, "Section.")
 c = []
 with open(sys.argv[11]) as my_file:
     for line in my_file:
-        c.append(line)
+        c.append(line.strip())
 
 output = {
   "country": sys.argv[4],
@@ -44,9 +44,9 @@ output = {
   "currentBoss": c[0],
   "organism": sys.argv[9],
   "BVs": int(math.pow(sub_sections_by_section, tree_depth)),
-  "voters registered by BV": sys.argv[10],
+  "voters registered by BV": int(sys.argv[10]),
   "sections": tree
 }
 
-with open('{}/se.json'.format(sys.argv[3]), 'w', encoding='utf-8') as outfile:
+with open('{}/SE-config.json'.format(sys.argv[3]), 'w', encoding='utf-8') as outfile:
     json.dump(output, outfile, indent=4, ensure_ascii=False)
