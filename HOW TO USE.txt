@@ -9,17 +9,16 @@ PRE REQUIS:
    commande ssh eeyes@206.189.210.30 , mot de passe:  eeyes2019
 
 2. lancer la script de test via la commande 
-   cd Eeyes-sources & python3 main.py
+   cd Eeyes-sources/ & python3 main.py
 
 3. Suivre les instructions
 	3.1 apres le demarrage du reseau de blockchain,
 	entrez les informations de creation de la session electorale
 	3.2 consultez, modifiez et validez le fchier de configuration de la session electorale, ou recommencer la procedure. apres cette etape, la session electorale est cree.
 	3.3 Generation des pvs: entrez les informations neccessaire a la generation des pvs. Puis telechargez les pvs genere via la commande "scp -r eeyes@206.189.210.30:/home/eeyes/Desktop/ ./eeyesData" dans un nouveau terminal.
-	3.4 Upload des PVs, trois methodes : 
+	3.4 Upload des PVs, deux methodes : 
 - Excecutez le script python sendPVs qui est dans eeyesData/ pour uploader automatiquement tous les pvs
 - Decompresser le zip eeyesviews.zip qui est dans le repertoire eeyesData/ et acceder a la plateforme via index.html qui se trouve dans le dossier decompresse, une fois sur la plateforme, uploader les pvs un par un
-- Accedez a la plateforme via l'url http://206.189.210.30/eeyes/ et y uploader les pv un par un
 
 	3.5 Consultez les resultats depuis la plateforme, soit celle en ligne, soit celle locale.
 
