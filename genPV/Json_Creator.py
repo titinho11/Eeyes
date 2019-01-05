@@ -2,7 +2,7 @@ import json
 
 
 def create_pv_json(pv, location_files):
-    content = {'$class': "org.eeyes.ressources.ComputePV", 'code': "{}:{}".format(pv.bv.father.name, pv.owner),
+    content = {'$class': "org.eeyes.ressources.ComputePV", 'code': "{}:{}".format(pv.bv.name, pv.owner),
                'BV': pv.bv.name, 'sectionName': pv.bv.father.name, 'nombreElecteursInscrits': pv.bv.register_num,
                'nombreSuffrageEmi': pv.bv.voters_num, 'candidateVoices': []}
 

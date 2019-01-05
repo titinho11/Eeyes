@@ -75,7 +75,7 @@ def gen_candidates_pvs_chaos(bureau_vote):
     global cheat_candidates
     global probabilite
     for candidate in session_electorale.candidates:
-        if random.random() <= probabilite:
+        if random.random() <= probabilite or candidate == session_electorale.current_president:
             if cheat_candidates[candidate]:
                 if random.random() < 0.5:
                     gen_candidate_wrong_pv(candidate, bureau_vote)
@@ -104,11 +104,11 @@ def gen_candidates_pvs_fraude(bureau_vote):
     global session_electorale
     global probabilite
     for candidate in session_electorale.candidates:
-        if random.random() <= probabilite:
+        if random.random() <= probabilite or candidate == session_electorale.current_president:
             if candidate == session_electorale.current_president:
-                if random.random() < 0.5:
-                    gen_candidate_wrong_pv(candidate, bureau_vote)
-                    continue
+                #if random.random() < 0.5:
+                gen_candidate_wrong_pv(candidate, bureau_vote)
+                continue
             copy_original_pv = PV(candidate, bureau_vote, bureau_vote.pVs[0].result.copy())
             bureau_vote.pVs.append(copy_original_pv)
     for pv in bureau_vote.pVs:
@@ -131,7 +131,7 @@ def gen_candidates_pvs_coalition(bureau_vote, type_coalition):
         if candidate not in coalition_members:
             retreive_from_others[candidate] = random.randint(0,bureau_vote.pVs[0].result[candidate])
             sum_retreives += retreive_from_others[candidate]
-            if random.random() <= probabilite:
+            if random.random() <= probabilite or candidate == session_electorale.current_president:
                 copy_original_pv = PV(candidate, bureau_vote, bureau_vote.pVs[0].result.copy())
                 bureau_vote.pVs.append(copy_original_pv)
     #print(retreive_from_others)
@@ -139,16 +139,16 @@ def gen_candidates_pvs_coalition(bureau_vote, type_coalition):
     if type_coalition == 'equilibre':
         part = int(sum_retreives/len(coalition_members))
         for candidate in session_electorale.candidates:
-            if random.random() <= probabilite:
-                if candidate in coalition_members:
-                    coalition_result[candidate] += part
-                else:
-                    coalition_result[candidate] -= retreive_from_others[candidate]
+            if candidate in coalition_members:
+                coalition_result[candidate] += part
+            else:
+                coalition_result[candidate] -= retreive_from_others[candidate]
         coalition_result[coalition_members[0]] += sum_retreives-part*len(coalition_members)
 
         for member in coalition_members:
-            pv = PV(member, bureau_vote, coalition_result.copy())
-            bureau_vote.pVs.append(pv)
+            if random.random() <= probabilite or member == session_electorale.current_president:
+                pv = PV(member, bureau_vote, coalition_result.copy())
+                bureau_vote.pVs.append(pv)
 
     elif type_coalition == 'concentre':
         if session_electorale.current_president in coalition_members:
@@ -157,15 +157,15 @@ def gen_candidates_pvs_coalition(bureau_vote, type_coalition):
             boss = random.choice(coalition_members)
 
         for candidate in session_electorale.candidates:
-            if random.random() <= probabilite:
-                if not candidate in coalition_members:
-                    coalition_result[candidate] -= retreive_from_others[candidate]
-                elif candidate == boss:
-                    coalition_result[candidate] += sum_retreives
+            if not candidate in coalition_members:
+                coalition_result[candidate] -= retreive_from_others[candidate]
+            elif candidate == boss:
+                coalition_result[candidate] += sum_retreives
 
         for member in coalition_members:
-            pv = PV(member, bureau_vote, coalition_result.copy())
-            bureau_vote.pVs.append(pv)
+            if random.random() <= probabilite or member == session_electorale.current_president:
+                pv = PV(member, bureau_vote, coalition_result.copy())
+                bureau_vote.pVs.append(pv)
 
     #gen pv for the organism
     if session_electorale.current_president in session_electorale.candidates:
@@ -226,6 +226,8 @@ def main(json_file, location_files, type_generation='normal', type_coalition = N
     """
     global session_electorale
     session_electorale = SE("{}/SE-config.json".format(json_file))
+    random.shuffle(session_electorale.candidates)
+    print(session_electorale.candidates)
     global cheat_candidates
     cheat_candidates = {}
 
@@ -240,7 +242,7 @@ def main(json_file, location_files, type_generation='normal', type_coalition = N
 
     global coalition_members
     coalition_members = []
-
+    
     for node in session_electorale.list_nodes:
         if isinstance(node, BV):
             gen_original_pv(node)

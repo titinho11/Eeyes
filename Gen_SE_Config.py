@@ -9,7 +9,7 @@ def gen_children(level, children_num, name):
         for i in range(children_num):
             temp = {
                 "$class": "org.eeyes.ressources.Section",
-                "name": "{}{}.".format(name,i+1)
+                "name": "{}-{}".format(name,i+1)
             }
             temp["sections"] = gen_children(level - 1, children_num, temp["name"])
             collection.append(temp)
@@ -19,7 +19,7 @@ def gen_children(level, children_num, name):
         for i in range(children_num):
             temp = {
                 "$class": "org.eeyes.ressources.Section",
-                "name": "{}{}.".format(name, i + 1)
+                "name": "{}-{}".format(name, i + 1)
             }
             collection.append(temp)
         return collection
@@ -27,7 +27,7 @@ def gen_children(level, children_num, name):
 tree_depth = int(sys.argv[1])
 sub_sections_by_section = int(sys.argv[2])
 
-tree = gen_children(tree_depth, sub_sections_by_section, "Section.")
+tree = gen_children(tree_depth, sub_sections_by_section, "Section")
 
 c = []
 with open(sys.argv[11]) as my_file:

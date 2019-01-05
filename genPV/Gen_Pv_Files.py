@@ -13,7 +13,7 @@ else:
 create_pv_json(list_bureau_vote[0].pVs[0], location_files)"""
 for bv in list_bureau_vote:
     for pv in bv.pVs:
-        sys.stdout.write("Generation de "+pv+"...")
+        sys.stdout.write("Generation de "+str(pv)+"...")
         create_pv_image(pv, location_files)
         create_pv_json(pv, location_files)
-        sys.stdout.write("Fait.")
+        sys.stdout.write("Fait.\n")

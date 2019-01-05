@@ -7,7 +7,8 @@ print ("---------------------------------------------------")
 print ("DEMARRAGE DE L'ENVIRONEMENT")
 print ("Starting Fabric Network and installing chaincode...")
 os.system("killall -9 node")
-os.system("sh startNetwork.sh")
+os.system("sudo sh startNetwork.sh")
+os.system("sh installNetworkTools.sh")
 print ("Eeyes Network up !")
 
 #Intialisation de la boucle
@@ -26,9 +27,9 @@ while rep == "yes":
     
     res = "no"
     while res == "no":
-        os.system("rm ~/Desktop/SE-config.json")
-        os.system("rm -r ~/Desktop/.Jsons")
-        os.system("rm -r ~/Desktop/Images")
+        os.system("rm ~/Desktop/SE-config.json 2>/dev/null")
+        os.system("rm -r ~/Desktop/.Jsons 2>/dev/null")
+        os.system("rm -r ~/Desktop/Images 2>/dev/null")
         print("Entrez le pays ou se deroule le scrutin...")
         pays = input()
         print("Entrez un titre pour cette session electorale...")
@@ -74,8 +75,8 @@ while rep == "yes":
         os.remove("candidates.temp")
         print("\033[32m")
         print("Le fichier de configuration a bien ete genere !")
-        print("Veuillez le consulter puis fermer l'editeur, sans neccessairement modifier quoique ce soit, puis revenez ici confimer son utilisation pour la suite...")
-        os.system("gedit ~/Desktop/SE-config.json")
+#        print("Veuillez le consulter puis fermer l'editeur, sans neccessairement modifier quoique ce soit, puis revenez ici confimer son utilisation pour la suite...")
+ #       os.system("gedit ~/Desktop/SE-config.json")
         print("Voulez-vous utiliser ce fichier de configuration ? entrez 'yes' pour confirmer et 'no' pour pour recommencer la generation...")
         print("\033[37m")
         res = input()
@@ -121,8 +122,7 @@ while rep == "yes":
 
     print("\033[37m")
     os.system(command)
-    print("Les pvs sont generes sur le bureau dans le dossier Images. Vous pouvez donc acceder a la plateforme et les uploader un a un. Les resultats se mettent a jour apres chaque upload. Allez-y et uploadez quelques proces verbaux !")
-
+    print("Les pvs sont generes !")
 
 
     #6 - Upload des pvs
@@ -130,13 +130,23 @@ while rep == "yes":
     print("\033[32m")
     print ("---------------------------------------------------")
     print ("TELECHARGEMENT DES PROCES VERBAUX")
-    print("Vous pouvez cependant utiliser un utilitaire pour uploader automatiquement tous les pvs, afin de vous eviter d'avoir a uploader plus de 50 fichiers !")
-    print("Uploader automatiquement les pvs ? (si vous l'avez deja fait manuellement, entrez 'no') entrez 'yes' pour uploader automatiquement et 'no' si vous ne le voulez pas.")
-    res = input()
-    if res == "yes":
-        os.system("python3 sendPvs.py ~/Desktop http://localhost/uploadPv")
-
+    print("Vous pouvez uploader les pv sur la plateforme de deux manieres")
+    print(" -   manuellement depuis la plateforme http://206.189.210.30/eeyes/ ")
+    print(" -   En utilisant une commande qui vous evite d'avoir a les uploader un a un !")
+    print("Commencez par telecharger les pv generes dans votre machine.")
     print("\033[37m")
+    print("utilisez pour cela la commande suivante dans un autre terminal : scp -r eeyes@206.189.210.30:/home/eeyes/Desktop/ ./EeyesData avec comme mot de passe 'eeyes2019'")
+    print("\033[32m")
+
+    print("-    Compilez le script EeyesData/sendPVs.py avec python3 pour envoyer automatiquement tous les pvs")
+    print("-    Consultez la plateforme (index.html present dans le fichier eeyes.zip que vous aurez dezzipe) http://206.189.210.30/eeyes/ pour les uploader manuellement.")
+    os.remove("~/Desktop/temp.pdf")
+
+    #res = input()
+    print("\033[37m")
+    #if res == "yes":
+     #   os.system("python3 sendPvs.py ~/Desktop http://localhost/uploadPv")
+
     print("Accedez a la plateforme et consultez les resultats !!")
     print("------------------------------------------------------")
     print("processus de test termine. Vous pouvez le recommencer, avec un nouveau fichier de configuration de session electorale.")
@@ -151,8 +161,3 @@ while rep == "yes":
 print("\033[32m")
 print ("Test done ! Now we are going to shutdown the Eeyes Network.")
 os.system("sh stopNetwork.sh")
-print ("eteindre la machine ? 'yes' pour eteindre 'no' sinon")
-p = input()
-print("\033[37m")
-if p == "yes":
-    os.system("shutdown now")

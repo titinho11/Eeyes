@@ -5,6 +5,7 @@ import math
 
 def create_pv_image(pv, location_files):
     first_part = [
+        ['Section', pv.bv.father.name],
         ['Bureau de vote', pv.bv.name],
         ['Nombre d\'inscrits', str(pv.bv.register_num)],
         ['Nombre de votants', str(pv.bv.voters_num)]
@@ -21,16 +22,16 @@ def create_pv_image(pv, location_files):
         second_part.append(temp)
 
     pdf = FPDF()
-    pdf.set_font("Times", style='B', size=20)
+    pdf.set_font("Times", style='B', size=23)
     pdf.add_page()
     row_height = pdf.font_size + 10
     i = 0
     for row in first_part:
         for item in row:
             if math.floor(i / 2) == i / 2:
-                pdf.cell(62, row_height, txt=item, border=1)
+                pdf.cell(76, row_height, txt=item, border=1)
             else:
-                pdf.cell(130, row_height, txt=item, border=1)
+                pdf.cell(122, row_height, txt=item, border=1)
             i = i + 1
         pdf.ln(row_height)
     pdf.ln(row_height)
@@ -39,9 +40,9 @@ def create_pv_image(pv, location_files):
     for row in second_part:
         for item in row:
             if math.floor(i / 2) == i / 2:
-                pdf.cell(140, row_height, txt=item, border=1)
+                pdf.cell(128, row_height, txt=item, border=1)
             else:
-                pdf.cell(52, row_height, txt=item, border=1)
+                pdf.cell(64, row_height, txt=item, border=1)
             i = i + 1
         pdf.ln(row_height)
     pdf.output('{}/temp.pdf'.format(location_files))
