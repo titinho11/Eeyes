@@ -1,0 +1,22 @@
+PROCEDURE DE TEST DE L'OUTILS EEYES
+
+1. se connecter en ssh a la machine de test avec la
+   commande ssh eeyes@206.189.210.30 , mot de passe:  eeyes2019
+
+2. lancer la script de test via la commande 
+   cd Eeyes-sources & python3 main.py
+
+3. Suivre les instructions
+	3.1 apres le demarrage du reseau de blockchain,
+	entrez les informations de creation de la session electorale
+	3.2 consultez, modifiez et validez le fchier de configuration de la session electorale, ou recommencer la procedure. apres cette etape, la session electorale est cree.
+	3.3 Generation des pvs: entrez les informations neccessaire a la generation des pvs
+	3.4 Upload des PVs: allez sur la plateforme http://206.189.210.30/eeyesview/index.html uploader manuellement les pv ou alors uploadez les tous automatiquement.
+	3.5 Consultez les resultats depuis la plateforme.
+
+3. Si jamais une erreur survient, ou alors vous commetez une erreur 
+d'entree durant la procedure, vous pouvez a tout moment interrompre
+le script (Ctrl + C) et recommencer depuis l'etape 2
+
+4. Pour consulter les resultats sur la plateforme
+consultez le lien http://206.189.210.30/eeyesview/index.html
