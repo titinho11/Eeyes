@@ -1,0 +1,166 @@
+{
+    "country": "Cameroun",
+    "title": "Elections presidentielle 2018",
+    "start": "11-10-2018",
+    "end": "11-10-2018",
+    "SE end date": "11-10-2018",
+    "authors": [
+        "Paul Biya",
+        "Maurice Kamto",
+        "Array Ashu"
+    ],
+    "currentBoss": "Paul Biya",
+    "organism": "Elections Cameroun",
+    "BVs": 16,
+    "voters registered by BV": "30",
+    "sections": [
+        {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Section.1.",
+            "sections": [
+                {
+                    "$class": "org.eeyes.ressources.Section",
+                    "name": "Section.1.1.",
+                    "sections": [
+                        {
+                            "$class": "org.eeyes.ressources.Section",
+                            "name": "Section.1.1.1.",
+                            "sections": [
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.1.1.1.1."
+                                },
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.1.1.1.2."
+                                }
+                            ]
+                        },
+                        {
+                            "$class": "org.eeyes.ressources.Section",
+                            "name": "Section.1.1.2.",
+                            "sections": [
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.1.1.2.1."
+                                },
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.1.1.2.2."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$class": "org.eeyes.ressources.Section",
+                    "name": "Section.1.2.",
+                    "sections": [
+                        {
+                            "$class": "org.eeyes.ressources.Section",
+                            "name": "Section.1.2.1.",
+                            "sections": [
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.1.2.1.1."
+                                },
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.1.2.1.2."
+                                }
+                            ]
+                        },
+                        {
+                            "$class": "org.eeyes.ressources.Section",
+                            "name": "Section.1.2.2.",
+                            "sections": [
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.1.2.2.1."
+                                },
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.1.2.2.2."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "$class": "org.eeyes.ressources.Section",
+            "name": "Section.2.",
+            "sections": [
+                {
+                    "$class": "org.eeyes.ressources.Section",
+                    "name": "Section.2.1.",
+                    "sections": [
+                        {
+                            "$class": "org.eeyes.ressources.Section",
+                            "name": "Section.2.1.1.",
+                            "sections": [
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.2.1.1.1."
+                                },
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.2.1.1.2."
+                                }
+                            ]
+                        },
+                        {
+                            "$class": "org.eeyes.ressources.Section",
+                            "name": "Section.2.1.2.",
+                            "sections": [
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.2.1.2.1."
+                                },
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.2.1.2.2."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$class": "org.eeyes.ressources.Section",
+                    "name": "Section.2.2.",
+                    "sections": [
+                        {
+                            "$class": "org.eeyes.ressources.Section",
+                            "name": "Section.2.2.1.",
+                            "sections": [
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.2.2.1.1."
+                                },
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.2.2.1.2."
+                                }
+                            ]
+                        },
+                        {
+                            "$class": "org.eeyes.ressources.Section",
+                            "name": "Section.2.2.2.",
+                            "sections": [
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.2.2.2.1."
+                                },
+                                {
+                                    "$class": "org.eeyes.ressources.Section",
+                                    "name": "Section.2.2.2.2."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
