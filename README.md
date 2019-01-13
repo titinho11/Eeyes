@@ -1,6 +1,6 @@
 ﻿# README #
 
-Telechargez le zip "Eeyes env.zip" et decompressez le.
+Telechargez le zip "Eeyes env.rar" et decompressez le.
 
 #
 HOW TO USE THIS PACKAGE
